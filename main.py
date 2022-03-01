@@ -41,7 +41,7 @@ while True:
         fileName = input("Enter file name to write out to: ")
         print(f"Writing {fileName}")
         with open(fileName, "w") as outFile:
-            outFile.write(json.dumps(searchTreeRoot))
+            outFile.write(json.dumps(searchTreeRoot.getDict()))
         print("Done")
     elif userInput == "q":
         break
