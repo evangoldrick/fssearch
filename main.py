@@ -29,14 +29,16 @@ while True:
         print("wj: write computed json file")
         print("q: quit")
     elif userInput == "lj":
-        print("Not yet implemented")
-        
+        assert "Not yet implemented"
     elif userInput == "lf":
         fileName = getExistingFileNameFromUser()
         with open(fileName, "r") as inFile:
             searchTreeRoot = parser.makeSearchTreeFromLines(inFile.readlines())
     elif userInput == "s":
-        print("Not yet implemented")
+        searchString = input("Enter string to be searched: ")
+        result = parser.searchTreeForString(searchTreeRoot, searchString)
+        for i in result:
+            print(i)
     elif userInput == "wj":
         fileName = input("Enter file name to write out to: ")
         print(f"Writing {fileName}")
@@ -44,6 +46,7 @@ while True:
             outFile.write(json.dumps(searchTreeRoot.getDict()))
         print("Done")
     elif userInput == "q":
+        print("Bye")
         break
     else:
         print("Unknown command")

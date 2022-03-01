@@ -9,8 +9,10 @@ def getMaxLengthString(arr: list) -> int:
     return longest
 
 def insertStringInTree(root: Node, string: str) -> None:
+    string = string.strip()
     root.strings.append(string)
-    root.depth
+    if len(string) > root.depth:
+        root.depth = len(string)
 
     for i in range(len(string)):  # iterate through the letters of the string
         currentNode = root  # set current node to root so that we can start over for each letter in the string
@@ -35,7 +37,6 @@ def makeSearchTreeFromLines(lines: list) -> Node:
     return returnValue
 
 def searchTreeForString(root: dict, string:str) -> list:
-    print(string, root.strings)
     if len(string) == 0:
         return root.strings
     else:
