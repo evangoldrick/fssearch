@@ -36,3 +36,4 @@ def test_superLongLines():
     lines = ["abcd", "z" * 5000]
     root = parser.makeSearchTreeFromLines(lines)
     res = root.getDict()
+    assert True
