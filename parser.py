@@ -1,3 +1,4 @@
+import json
 from node import Node
 
 def getMaxLengthString(arr: list) -> int:
@@ -36,8 +37,21 @@ def makeSearchTreeFromLines(lines: list) -> Node:
 
     return returnValue
 
+def makeSearchTreeFromDict(root:dict):
+    returnValue = Node()
+
+    for k in root["children"].keys():
+        Node.children[k] = makeSearchTreeFromDict(root["children"][k])
+    
+    Node.strings = root
+    print(returnValue)
+    assert False and "Not implemented"
+    return returnValue    
+
+
 def searchTreeForString(root: dict, string:str) -> list:
     if len(string) == 0:
         return root.strings
     else:
         return searchTreeForString(root.children[string[0]], string[1:])
+
